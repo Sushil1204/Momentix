@@ -21,7 +21,7 @@ const Sidebar = () => {
                 </Link>
                 <div className="flex flex-col  m-5 space-y-8">
                     {Navlinks?.map((nav, index) =>
-                        <Link href='/' className={
+                        <Link href={nav?.href} className={
                             isActiveStyle
                         } key={index}>
                             {nav?.icon}
