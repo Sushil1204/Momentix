@@ -1,3 +1,12 @@
+import PostCard from "./components/PostCard";
+
 export default function Home() {
-  return <div className="flex-1 mt-16 md:mt-0">feed</div>;
+  return (
+    <div className="flex mt-16 mx-10 md:w-full md:justify-center md:gap-x-96 md:mt-8 md:max-h-screen md:overflow-y-scroll overflow-x-hidden no-scrollbar">
+      <div className="w-full md:max-w-md">
+        <PostCard />
+      </div>
+      <div className="md:visible">future Component</div>
+    </div>
+  );
 }

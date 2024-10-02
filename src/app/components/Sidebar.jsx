@@ -32,7 +32,7 @@ const Sidebar = () => {
 
             </div>
             <div className='m-5 flex items-center gap-x-4'>
-                <Image src={userAvatar} width={50} height={50} className='rounded-full' />
+                <Image src={userAvatar} width={50} height={50} alt='user' className='rounded-full' />
                 <div>
                     <p className='font-bold text-lg text-gray-900'>Sushil Pundkar</p>
                     <p className='text-sm text-gray-500'>@Sushil_2001</p>
