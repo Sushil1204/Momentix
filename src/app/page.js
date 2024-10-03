@@ -6,7 +6,7 @@ export default function Home() {
       <div className="w-full md:max-w-md">
         <PostCard />
       </div>
-      <div className="md:visible">future Component</div>
+      <div className="hidden md:block">future Component</div>
     </div>
   );
 }

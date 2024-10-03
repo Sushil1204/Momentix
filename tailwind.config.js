@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Poppins: ["Poppins", "sans-serif"], // Add your custom font family
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
