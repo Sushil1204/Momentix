@@ -22,7 +22,7 @@ const MobileNav = () => {
                     <IoIosNotifications size={30} />
                 </Link>
             </div>
-            <div className="fixed bottom-0 left-0 right-0 md:hidden bg-white shadow-lg py-4 flex justify-around items-center border-t">
+            <div className="fixed bottom-0 left-0 right-0 md:hidden bg-white shadow-lg py-1 flex justify-around items-center border-t">
                 {MobileNavlinks?.map((nav, index) => (
                     <Link key={index} href="/" className="flex flex-col items-center">
                         {nav?.icon}
