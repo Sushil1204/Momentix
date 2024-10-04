@@ -1,8 +1,7 @@
 'use client'
+import { fetchPosts } from '@/app/constants/apiFuntions';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react'
 import { FaSearch } from 'react-icons/fa'
-import { fetchPosts } from '../constants/apiFuntions';
 
 const page = () => {
     const { data: posts, error: postsError, isLoading: postsLoading } = useQuery({ queryKey: ['posts'], queryFn: fetchPosts });

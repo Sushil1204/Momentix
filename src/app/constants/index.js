@@ -1,6 +1,14 @@
 import { GoHomeFill, GoSearch } from "react-icons/go";
 import { IoIosNotifications } from "react-icons/io";
-import { FaPlusSquare, FaUsers } from "react-icons/fa";
+import {
+  FaBell,
+  FaHome,
+  FaPlusCircle,
+  FaPlusSquare,
+  FaSearch,
+  FaUser,
+  FaUsers,
+} from "react-icons/fa";
 import Link from "next/link";
 
 const userAvatar = "https://ui-avatars.com/api/?name=Sushil+Pundkar";
@@ -8,47 +16,52 @@ const userAvatar = "https://ui-avatars.com/api/?name=Sushil+Pundkar";
 export const Navlinks = [
   {
     title: "Home",
-    icon: <GoHomeFill size={35} />,
+    icon: <FaHome className="h-7 w-7" />,
     href: "/",
   },
   {
     title: "Search",
-    icon: <GoSearch size={35} />,
-    href: "/Search",
+    icon: <FaSearch className="h-7 w-7" />,
+    href: "/search",
   },
   {
     title: "Notification",
-    icon: <IoIosNotifications size={35} />,
-    href: "/Notifications",
+    icon: <FaBell className="h-7 w-7" />,
+    href: "/notifications",
   },
   {
     title: "Friends",
-    icon: <FaUsers size={35} />,
-    href: "/Friends",
+    icon: <FaUsers className="h-7 w-7" />,
+    href: "/friends",
   },
   {
     title: "Create",
-    href: "/Create",
-    icon: <FaPlusSquare size={35} />,
+    href: "/create",
+    icon: <FaPlusCircle className="h-7 w-7" />,
+  },
+  {
+    title: "Profile",
+    href: "/profile",
+    icon: <FaUser className="h-7 w-7" />,
   },
 ];
 
 export const MobileNavlinks = [
   {
-    icon: <GoHomeFill size={30} />,
+    icon: <GoHomeFill className="h-7 w-7" />,
     href: "/",
   },
   {
-    icon: <GoSearch size={30} />,
-    href: "/Search",
+    icon: <GoSearch className="h-7 w-7" />,
+    href: "/search",
   },
   {
-    icon: <FaPlusSquare size={30} />,
-    href: "/Create",
+    icon: <FaPlusSquare className="h-7 w-7" />,
+    href: "/create",
   },
   {
-    icon: <FaUsers size={30} />,
-    href: "/Friends",
+    icon: <FaUsers className="h-7 w-7" />,
+    href: "/friends",
   },
   {
     icon: (

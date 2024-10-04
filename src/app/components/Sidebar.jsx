@@ -15,21 +15,18 @@ const Sidebar = () => {
     const userAvatar = 'https://ui-avatars.com/api/?name=Sushil+Pundkar'
     return (
         <div className="flex flex-col justify-between h-full min-w-210">
-            <div className="flex flex-col space-y-10">
-                <Link href='/' className='flex px-5 gap-2 my-6 pt-1 w-190 items-center'>
+            <div className="flex flex-col items-center  h-screen">
+                <Link href='/' className='flex items-center gap-2 my-6 w-190'>
                     <Image src={momentix_transparent_logo} alt="logo" width={210} height={150} />
                 </Link>
-                <div className="flex flex-col  m-5 space-y-8">
-                    {Navlinks?.map((nav, index) =>
-                        <Link href={nav?.href} className={
-                            isActiveStyle
-                        } key={index}>
+                <div className="flex flex-col  justify-center m-5 space-y-8">
+                    {Navlinks?.map((nav, index) => (
+                        <Link href={nav?.href} className={isActiveStyle} key={index} aria-label={nav?.title} role="link">
                             {nav?.icon}
-                            {nav?.title}
+                            <span className="ml-2">{nav?.title}</span>
                         </Link>
-                    )}
+                    ))}
                 </div>
-
             </div>
             <div className='m-5 flex items-center gap-x-4'>
                 <Image src={userAvatar} width={50} height={50} alt='user' className='rounded-full' />

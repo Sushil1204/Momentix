@@ -1,9 +1,8 @@
+import ProfileCard from "@/app/components/ProfileCard";
 import Image from "next/image";
-import React from "react";
 import { AiOutlineTag } from "react-icons/ai";
 import { BsBookmarkCheckFill, BsGrid3X3 } from "react-icons/bs";
 import { HiOutlineCog } from "react-icons/hi";
-import ProfileCard from "../components/ProfileCard";
 
 const ProfilePage = () => {
     return (
