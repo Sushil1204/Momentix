@@ -7,6 +7,7 @@ export const metadata = {
 
 import dynamic from "next/dynamic";
 import QueryProvider from "./utils/QueryProvider";
+import MobileHeader from "./components/MobileHeader";
 const Sidebar = dynamic(() => import("./components/Sidebar"), { ssr: false });
 const MobileNav = dynamic(() => import("./components/MobileNav"), {
   ssr: false,
@@ -26,11 +27,20 @@ export default function RootLayout({ children }) {
       <body>
         <QueryProvider>
           <div className="flex bg-grey-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
+            {/* Sidebar for larger screens */}
             <div className="hidden md:flex h-screen flex-initial">
               <Sidebar />
             </div>
 
-            {children}
+            {/* Mobile Header */}
+            <MobileHeader />
+
+            {/* Main content */}
+            <div className="flex-1 overflow-y-auto mt-[60px] mb-[60px] md:mt-0 md:mb-0">
+              {children}
+            </div>
+
+            {/* Mobile Navigation */}
             <MobileNav />
           </div>
         </QueryProvider>
