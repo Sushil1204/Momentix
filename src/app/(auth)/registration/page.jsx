@@ -1,5 +1,4 @@
 "use client"
-import ForgotPasswordModal from '@/app/components/ForgetPasswordmodal';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form';
@@ -7,10 +6,11 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
-const Login = () => {
+
+const Registration = () => {
     const { handleSubmit, control, formState: { errors } } = useForm();
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const onSubmit = async (data) => {
         console.log('Form Data:', data);
 
@@ -21,11 +21,39 @@ const Login = () => {
 
     return (
         <>
-            <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-                <p className="text-sm text-gray-800">Welcome back</p>
-                <h1 className="text-2xl text-gray-800 font-semibold mb-6">Log In to your Account</h1>
+            <div className="w-full max-w-md p-6 rounded-lg shadow-md bg-white">
+                <p className="text-sm text-gray-800 ">LET'S GET YOU STARTED</p>
+                <h1 className="text-2xl font-semibold mb-6 text-gray-800">Create an Account</h1>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    {/* Name Field */}
+                    <div className="mb-4">
+                        <Controller
+                            name="name"
+                            control={control}
+                            defaultValue=""
+                            rules={{
+                                required: 'Name is required',
+                            }}
+                            render={({ field }) => (
+                                <div className="relative">
+                                    <label htmlFor="name" className="absolute -top-2 left-4 bg-white px-1 text-gray-700 text-sm">
+                                        Your Name
+                                    </label>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        placeholder="Johnson Doe"
+                                        className={`w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-800 placeholder-gray-400 text-lg ${errors.name ? 'border-red-500' : ''}`}
+                                        {...field}
+                                    />
+                                </div>
+                            )}
+                        />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                    </div>
+
+
                     {/* Email Field */}
                     <div className="mb-4">
                         <Controller
@@ -48,7 +76,7 @@ const Login = () => {
                                         id="email"
                                         type="text"
                                         placeholder="sushilpundkar@gmail.com"
-                                        className={`w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-800 placeholder-gray-400 text-lg ${errors.email ? 'border-red-500' : ''}`}
+                                        className={`w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-800 placeholder-gray-400 text-lg ${errors.name ? 'border-red-500' : ''}`}
                                         {...field}
                                     />
                                 </div>
@@ -77,7 +105,7 @@ const Login = () => {
                                             id="password"
                                             placeholder="*****"
                                             type={passwordVisible ? 'text' : 'password'}
-                                            className={`w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-800 placeholder-gray-400 text-lg ${errors.password ? 'border-red-500' : ''}`}
+                                            className={`w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-800 placeholder-gray-400 text-lg ${errors.name ? 'border-red-500' : ''}`}
                                             {...field}
                                         />
                                     </div>
@@ -94,35 +122,46 @@ const Login = () => {
                         {errors.password && <p className="text-red-500 text-xs">{errors.password.message}</p>}
                     </div>
 
+                    <div className=" relative mb-4 mx-4 flex items-center gap-3">
+                        <Controller
+                            name="term_condition"
+                            defaultValue={false}
+                            control={control}
+                            rules={{
+                                required: "Please agree to the terms to proceed.",
+                            }}
+                            render={({ field }) => (
+                                <input type='checkbox'
+                                    className='appearance-none rounded-xl w-6 h-6 border border-gray-800  active:outline-none focus:outline-none checked:bg-white checked:border-4  checked:border-gray-800' {...field} style={{}} />
+                            )}
+                        />
+                        <span className='text-sm  text-slate-600'>I agree to the Terms and Privacy Policy.</span>
+                    </div>
+
 
                     {/* Submit Button */}
                     <button
                         type="submit"
                         className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-900 focus:outline-none"
                     >
-                        Log In
+                        Continue
                     </button>
                 </form>
-
-                <hr className="my-5" />
-                <p className="text-center text-sm cursor-pointer" onClick={() => setIsModalOpen(true)}>Forget Password?</p>
             </div>
-
             {/* Signup Prompt Container */}
             <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
                 <div className="text-center">
                     <p className="text-sm text-gray-600">
-                        Don't have an account?{" "}
-                        <Link href="/registration" className="text-gray-800 font-semibold hover:underline">
-                            SIGN UP HERE
+                        Already have an account?{" "}
+                        <Link href="/login" className="text-gray-800 font-semibold hover:underline">
+                            LOGIN HERE
                         </Link>
                     </p>
                 </div>
             </div>
-            <ForgotPasswordModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}
-            />
+
         </>
     )
 }
 
-export default Login
+export default Registration
