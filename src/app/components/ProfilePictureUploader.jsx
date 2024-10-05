@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 import { AiOutlineCamera } from 'react-icons/ai';
+import { IoCloseOutline } from 'react-icons/io5';
 
 const ImageUpload = () => {
     const [image, setImage] = useState(null); // For storing the selected image
@@ -97,7 +98,10 @@ const ImageUpload = () => {
             {open && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
                     <div className="bg-white rounded-lg p-6 w-11/12 max-w-md shadow-lg text-center">
-                        <h2 className="text-lg font-bold mb-4">Crop Image</h2>
+                        <div className="flex items-center justify-between">
+                            <h2 className="text-lg font-bold mb-4">Crop Image</h2>
+                            <IoCloseOutline size={25} onClick={() => setOpen(false)} cursor="pointer" />
+                        </div>
                         {image && (
                             <Cropper
                                 src={image}
@@ -115,17 +119,12 @@ const ImageUpload = () => {
                         )}
                         <div className="mt-4 flex justify-between">
                             <button
-                                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                                className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900"
                                 onClick={cropImage}
                             >
-                                Crop Image
+                                Confirm
                             </button>
-                            <button
-                                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-                                onClick={() => setOpen(false)}
-                            >
-                                Cancel
-                            </button>
+
                         </div>
                     </div>
                 </div>
