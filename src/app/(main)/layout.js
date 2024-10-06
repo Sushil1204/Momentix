@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <MobileHeader />
 
       {/* Main content */}
-      <div className="flex-1 overflow-y-auto mt-[60px] mb-[60px] md:mt-0 md:mb-0">
+      <div className="flex-1 overflow-hidden mt-[60px] mb-[60px] md:mt-0 md:mb-0">
         {children}
       </div>
 
